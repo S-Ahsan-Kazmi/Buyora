@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyora</title>
+    <style>
+       
+        #PopularPosts1,
+  #footer, 
+  .page header,
+  #comments,
+  .post-share-buttons,
+  h3.post-title, 
+  .bg-photo-container,
+  .bg-photo-overlay,
+  .centered-top-container,
+  .collapsed-header .centered-top-placeholder {
+  	display: none;
+  }
+  
+  
+  .post-body {
+  	color: #000;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .post-body img { height: unset; }
+  
+  .post-body h3 { color: #000; }
+  
+  footer h3 { color: #fff; }
+  
+  .Blog .blog-posts .post-outer-container .post-outer {
+   	padding-bottom: 0; 
+  }
+  
+  .Blog .blog-posts .post-outer-container,
+  .centered-bottom { 
+  	padding: 0;
+  }
+  
+  .page_body .widget {
+  	margin-bottom: 0;
+  }
+  
+  .page_body .centered {
+  	padding: 0;
+    max-width: unset;
+  }
+  
+  @media screen and (max-width: 800px) {
+    div.widget.Blog .blog-posts .post-outer-container {
+    	padding: 0;
+    }
+  }
+  
+  nav a:hover {
+  	color: #000;
+  }
+  
+  a:visited {
+  	color: #000;
+  }
+  
+  .buttons a:visited,
+  footer a:visited {
+  	color: #fff;
+  }
+  
+  .post-body footer h3 {color: #fff;}
+  /* blogger */
+
+
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  /* padding-bottom:10px; */
+  background-color: #F9F9F9;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #333; */
+  background-color: #0F1111;
+  padding: 10px 20px;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+
+}
+
+.nav-links li a:hover {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.nav-links .input li input {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  width:240px;
+  height:30px;
+  outline: none;
+
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 800px) {
+.menu-toggle {
+  display: block;
+  font-size: 1.5rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.nav-links {
+    display:none;
+}
+.show{
+    display: flex;
+    /* background-color: #333; */
+    background-color: #0F1111;
+    position: absolute;
+    /* top:52px; normal website */
+    /* top:44px; blogger */
+     top:44px;
+    
+    width:100%;
+    left:0px;
+    height:300px;
+    flex-direction: column;
+    padding-top:20px;
+  /* gap:10px; */
+    
+    
+
+} 
+.show .input{
+         border: 3px solid rgb(198, 11, 11);
+         width:80%;    
+    }
+
+.show .input li input{
+    width:100%;
+    height:30px;
+}
+
+
+} 
+
+  
+  
+  
+
+
+.cards-container{
+  flex: 1;
+              display: flex;
+              justify-content:space-around;
+              flex-wrap: wrap;
+              /* align-items: stretch;*/
+              /* margin-bottom:10px; */
+               /* gap: 10px; */
+               padding-bottom: 10px;
+}
+.card{
+        border: 2px solid black;
+        width:300px;
+
+
+        /* height:fit-content;  */
+        font-size:16px;
+        margin-top: 25px;
+        /* margin-left:10px; */
+        background-color: white;
+        display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  
+}
+
+
+   .card img {
+       display: flex;
+    /* justify-content: center; */
+    /* text-align: center; */
+    width: 129px;
+    /* max-height: fit-content; */
+    height: 200px;
+    /* border: 1px solid blue; */
+    margin: auto;
+    padding: 10px;
+    object-fit: fill;
+}
+
+      /* .card .product-title ,.card .short-description , .card .btn{
+        border: 1px solid black;
+        
+      } */
+
+      .card .btn button{
+        width:100%;
+        height:50px;
+        background-color:#FF9900;
+        font-weight: bold;
+        border:none;
+        cursor: pointer;
+      }
+      .card .btn button:hover{
+        background-color: #cc7a00;
+      }
+.card .btn button a{
+        color: white;
+        text-decoration: none;
+        font-size: large;
+  
+}
+.hamburger {
+    display: none;
+}
+
+/* @media only screen and (max-width: 800px) {
+.hamburger {
+    display: block;
+}              
+
+
+} */
+.product-title h3{
+   text-align: center;
+   /* white-space: pre-line; */
+   color: #232F3E;
+}
+.short-description{
+  flex-grow: 1;
+  /* padding:10px; */
+}
+.short-description p {
+    white-space: pre-line;
+    word-wrap: break-word;
+    margin-left:5px;
+    padding-bottom:5px;
+
+}
+
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 15px; */
+  border: 1px solid black;
+  flex-direction: column;
+  height:100px;
+  /* background-color: #222222; */
+  background-color: #0F1111;
+  /* background-color: #232F3E; */
+  /* padding:10px; */
+  
+  
+}
+.footer-nav ul{
+  display: flex;
+  /* gap:5px; */
+   gap: 20px;
+  list-style:none;
+}
+.footer-nav ul li a {
+  text-decoration: none;
+color: white;
+}
+.copywrite{
+  padding-top:40px;
+color: white;
+font-size: 14px;
+}
+    </style>
+</head>
+<body>
+
+
+
+<nav class="navbar">
+    <div class="logo"><h1>Buyora</h1></div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+      <li><a href="Disclaimer.html">Disclaimer</a></li>
+      <div class="input">
+      <li><input type="text" placeholder="Search..."></li>
+    </div>
+    </ul>
+  <button class="menu-toggle" id="menu-toggle">&#9776;</button>  
+</nav>
+
+       
+<div class="cards-container">
+    
+   <!-- <div class="card">
+    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="">
+    <div class="product-title">
+        <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+    </div>   
+    <div class="short-description">
+           <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, voluptatum? Eligendi eaque dolorem sint iure debitis, veniam aperiam, similique sit necessitatibus ipsa dolor nemo at. Ut ea accusantium optio facere.</p>
+    </div>
+    <div class="btn">
+        <button>Buy on Amazon</button>
+    </div>
+</div> -->
+
+
+ 
+</div>
+<div class="footer">
+  <div class="footer-nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="About.html">About </a></li>
+      <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+      <li><a href="Disclaimer.html">Disclaimer</a></li>
+    </ul>
+  </div>
+  <div class="copywrite">
+    <p>© 2025 YourWebsiteName. All rights reserved.</p>
+  </div>
+</div>
+<script>
+
+const toggleBtn = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+toggleBtn.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+let cardsContainer = document.querySelector(".cards-container");
+let input = document.querySelector(".input")
+let displayProduct = async ()=>{
+    let product = await fetch("https://fakestoreapi.com/products");
+    let finalProduct = await product.json()
+    // console.log(finalProduct);
+   finalProduct.forEach(e => {
+    // console.log(e);
+    cardsContainer.innerHTML += ` <div class="card">
+    <img src="${e.image}" alt="">
+    <div class="product-title">
+        <h3>${e.title}</h3>
+    </div>   
+    <div class="short-description">
+           <p>${e.description}</p>
+    </div>
+    <div class="btn">
+        <button><a href="#">Buy On Amazon</a></button>
+    </div>
+</div>`;
+    
+});
+
+let input = document.querySelector("input");   
+let card = cardsContainer.querySelectorAll(".card")
+
+
+
+
+input.addEventListener("input",()=>{
+inputValue = input.value
+
+
+card.forEach(e => {
+ 
+inputValue = inputValue.toLowerCase()
+text = e.childNodes[3].childNodes[1].textContent.toLowerCase()
+
+
+// console.log(text.includes(inputValue));
+
+if (text.includes(inputValue)) {
+    e.style.display = "flex";
+    
+    
+} else {
+  e.style.display = "none";
+ 
+
+}
+
+
+
+// console.log(cardsContainer.querySelector(".card"));
+
+
+
+});
+
+})
+
+
+
+
+
+
+
+
+    
+}
+displayProduct()
+
+//{ ya code okay ha
+
+// }
+
+
+// let ahb = "ahsan";
+
+// console.log(ahb.includes("a"));
+
+
+
+
+
+
+</script>
+</body>
+</html>
